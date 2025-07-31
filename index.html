@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Cycle Pune - Recycle Your E-Waste Responsibly</title>
+    <style>
+        /* --- Google Font --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #2c5e3f; /* Dark Green */
+            --secondary-color: #007bff; /* Blue */
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --background-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background: var(--background-color);
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hamburger Menu for Mobile */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: url('http://googleusercontent.com/generated_image_content/0') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px; /* Offset for fixed header */
+        }
+        
+        .hero-content {
+             background: rgba(255,255,255,0.8);
+             padding: 2rem;
+             border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #1e422b;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary-color);
+            margin-left: 1rem;
+        }
+        .btn-secondary:hover {
+            background: #0056b3;
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .about-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- How To Section --- */
+        #how-to {
+            background: var(--light-color);
+        }
+        
+        .how-to-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+            border: 5px solid var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .dos-donts ul {
+            list-style: none;
+        }
+        .dos-donts li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .dos-donts li::before {
+            content: '✔️';
+            color: green;
+            position: absolute;
+            left: 0;
+        }
+        
+        .dos-donts li.dont::before {
+            content: '❌';
+            color: red;
+        }
+
+        /* --- Drive Section --- */
+        .drive-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--light-color);
+            border-radius: 10px;
+        }
+        
+        .drive-form input, .drive-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* --- FAQ Section --- */
+        .faq-item {
+            background: var(--light-color);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .navbar {
+                position: relative;
+            }
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: #fff;
+                box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+            }
+            
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .navbar .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .about-grid, .how-to-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">E-Cycle Pune</div>
+            <ul class="nav-links">
+                <li><a href="#about">About E-Waste</a></li>
+                <li><a href="#how-to">How to Recycle</a></li>
+                <li><a href="#drive">Collection Drive</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Don't Trash Your Tech.</h1>
+            <p>Recycle your e-waste responsibly in Pune and help build a greener future.</p>
+            <a href="#how-to" class="btn">Find a Collection Point</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>What is E-Waste?</h2>
+            <p style="text-align:center; max-width: 800px; margin: auto auto 2rem auto;">
+                E-waste is any discarded electronic equipment. These items contain both valuable materials worth recovering and hazardous materials that can harm our environment and health if not disposed of correctly.
+            </p>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="icon">📱</div>
+                    <h3>Common Items</h3>
+                    <p>Old phones, laptops, chargers, cables, batteries, headphones, keyboards, and other gadgets.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">🌍</div>
+                    <h3>Environmental Impact</h3>
+                    <p>Toxic chemicals like lead and mercury can seep into soil and water, causing long-term pollution.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">♻️</div>
+                    <h3>Why Recycle?</h3>
+                    <p>Recycling recovers precious metals, saves energy, reduces greenhouse gas emissions, and protects our planet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to">
+        <div class="container">
+            <h2>How & Where to Recycle</h2>
+            <div class="how-to-content">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d242117.68111242314!2d73.7164478725832!3d18.52460352538139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1se-waste%20collection%20center%20pune!5e0!3m2!1sen!2sin!4v1690833215904!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="dos-donts">
+                    <h3>A Simple Checklist:</h3>
+                    <ul>
+                        <li>Back up your personal data.</li>
+                        <li>Wipe your device by performing a factory reset.</li>
+                        <li>Remove SIM cards and memory cards.</li>
+                        <li class="dont">DO NOT throw e-waste in regular dustbins.</li>
+                        <li class="dont">DO NOT sell to informal scrap dealers.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drive">
+        <div class="container">
+            <h2>Our Collection Drive</h2>
+            <p style="text-align:center;">As part of our project, we organize collection drives. Check this space for updates on the next event!</p>
+            <div class="drive-form">
+                <h3>Schedule a Pickup (During Drive Week)</h3>
+                <p style="margin-bottom:1rem;">The form below will be active during our next collection drive. You will be able to schedule a pickup from your location (service available in select areas).</p>
+                <form>
+                    <input type="text" placeholder="Your Name (Form currently disabled)" disabled>
+                    <input type="text" placeholder="Your Address (Form currently disabled)" disabled>
+                    <textarea placeholder="List of items... (Form currently disabled)" disabled></textarea>
+                    <button type="submit" class="btn" disabled>Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" style="background: var(--light-color);">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>Is this service free?</h4>
+                <p>Yes, our awareness project and collection drives are a community service and completely free.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What happens to the e-waste you collect?</h4>
+                <p>All collected items are handed over to government-authorized e-waste recycling partners who process them safely.</p>
+            </div>
+             <div class="faq-item">
+                <h4>How should I handle my personal data?</h4>
+                <p>Always back up any data you want to save and then perform a 'Factory Reset' on your device to wipe all personal information before recycling it.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 E-Cycle Pune | A Second Year Engineering Student Project | SPPU</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for the mobile hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
